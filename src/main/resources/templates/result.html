@@ -7,7 +7,7 @@
 </head>
 <body class="container mt-5">
 <h1 class="text-center">Result</h1>
-<p class="alert" th:classappend="${#strings.equals(message, 'Correct! The color was ' + correctColor)} ? 'alert-success' : 'alert-danger'" th:text="${message}"></p>
+<p class="alert" th:classappend="${isCorrect} ? 'alert-success' : 'alert-danger'" th:text="${message}"></p>
 <div class="text-center mt-4">
     <a href="/" class="btn btn-primary">Try Again</a>
 </div>

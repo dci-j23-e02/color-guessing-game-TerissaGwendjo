@@ -16,7 +16,8 @@ import java.util.List;
 public class GameController {
 
     // Field injection
-    @Autowired
+    @Autowired // autowired just instantiates the object for you so that injects th field from the @Service .
+    // That means you will have to annotate the main class as service and the Controller class autowired
     private ColorService colorService;
 
     @GetMapping ("/")
@@ -24,7 +25,9 @@ public class GameController {
         String color = colorService.getRandomColor();
         model.addAttribute("currentColor", color);
         model.addAttribute("colors", colorService.getColors());
+        System.out.println("SHOWING HOMPAGE");
         return "index";
+
     }
 
 
@@ -33,6 +36,9 @@ public class GameController {
         boolean isCorrect = colorService.validateGuess(guess);
         model.addAttribute("message",isCorrect ? "Correct! The color was " + colorService.getCurrentColor() : "Incorrect! Try again.");
 
+        model.addAttribute("isCorrect" , isCorrect);
+
+        System.out.println("SHOWING RESULTS PAGE");
         return "result";
     }
 
