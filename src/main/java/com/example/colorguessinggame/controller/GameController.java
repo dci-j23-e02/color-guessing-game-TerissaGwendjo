@@ -15,6 +15,7 @@ import java.util.List;
 @SessionAttributes ("correctColor")
 public class GameController {
 
+    // Field injection
     @Autowired
     private ColorService colorService;
 
